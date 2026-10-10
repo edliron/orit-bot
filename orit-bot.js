@@ -20,9 +20,7 @@ puppeteer: {
         '--disable-setuid-sandbox',
         '--disable-dev-shm-usage',
         '--disable-gpu',
-        '--single-process',
-        '--no-zygote'
-      ] 
+'--no-first-run'      ] 
     }
 client.on('qr', qr => {
     console.log('--- סרקי את ה-QR הזה בוואטסאפ ---');
