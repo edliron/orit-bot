@@ -13,9 +13,17 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 const client = new Client({
     authStrategy: new LocalAuth(),
-    puppeteer: { headless: true, args: ['--no-sandbox','--disable-setuid-sandbox'] }
-});
-
+puppeteer: { 
+      headless: true, 
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-gpu',
+        '--single-process',
+        '--no-zygote'
+      ] 
+    }
 client.on('qr', qr => {
     console.log('--- סרקי את ה-QR הזה בוואטסאפ ---');
     qrcode.generate(qr, {small: true});
